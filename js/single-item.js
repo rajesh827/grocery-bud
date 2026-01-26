@@ -1,3 +1,5 @@
+import { editCompleted, removeItem } from "./app.js";
+
 export function createSingleItem(item) {
   const div = document.createElement("div");
   div.className = "single-item";
@@ -15,25 +17,9 @@ export function createSingleItem(item) {
     </button>
   `;
 
-  return div;
-}
-
-import { editCompleted } from "./app.js";
-
-function createSingleItem(item) {
-  // ....
-
   // Add event listener for checkbox
   const checkbox = div.querySelector('input[type="checkbox"]');
   checkbox.addEventListener("change", () => editCompleted(item.id));
-
-  return div;
-}
-
-import { editCompleted, removeItem } from "./app.js";
-
-function createSingleItem(item) {
-  // ....
 
   // Add event listener for remove button
   const removeBtn = div.querySelector(".remove-btn");
