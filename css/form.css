@@ -18,3 +18,23 @@ form h2 {
   border-bottom-left-radius: 0.25rem;
   border: 1px solid #ddd;
 }
+
+.form-input::placeholder {
+  color: #aaa;
+}
+
+.form-control .btn {
+  cursor: pointer;
+  color: #fff;
+  background: #06b6d4;
+  border: transparent;
+  border-radius: 0;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  text-transform: capitalize;
+}
+
+.form-control .btn:hover {
+  background: #0e7490;
+}
