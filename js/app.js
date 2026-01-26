@@ -1,5 +1,6 @@
 import { groceryItems } from "./data.js";
 import { createItems } from "./items.js";
+import { createForm } from "./form.js";
 
 let items = groceryItems;
 
@@ -8,7 +9,10 @@ function render() {
   const app = document.getElementById("app");
   app.innerHTML = "";
 
+  const formElement = createForm();
   const itemsElement = createItems(items);
+
+  app.appendChild(formElement);
   app.appendChild(itemsElement);
 }
 
