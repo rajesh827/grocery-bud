@@ -25,5 +25,9 @@ export function createSingleItem(item) {
   const removeBtn = div.querySelector(".remove-btn");
   removeBtn.addEventListener("click", () => removeItem(item.id));
 
+  // Add event listener for edit button
+  const editBtn = div.querySelector(".edit-btn");
+  editBtn.addEventListener("click", () => setEditId(item.id));
+
   return div;
 }
