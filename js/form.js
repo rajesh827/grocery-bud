@@ -29,7 +29,13 @@ export function createForm(editId, itemToEdit) {
       return;
     }
 
-    addItem(value);
+    // added conditions
+    if (editId) {
+      updateItemName(value);
+    } else {
+      addItem(value);
+    }
+
     input.value = "";
   });
   return form;
