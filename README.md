@@ -4,6 +4,8 @@ A simple and interactive **Grocery List App** built using **plain JavaScript**.
 This project allows users to add, edit, delete, and mark grocery items as completed. It also supports **local storage**, so items persist even after refreshing the page.
 
 ---
+## 🔗 Live Preview
+https://rajesh827.github.io/grocery-bud/
 
 ## 🚀 Features
 
