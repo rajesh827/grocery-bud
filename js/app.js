@@ -23,7 +23,7 @@ function render() {
   const formElement = createForm(
     editId,
     editId ? items.find((item) => item.id === editId) : null,
-  ); // edited line
+  );
   const itemsElement = createItems(items);
 
   app.appendChild(formElement);
