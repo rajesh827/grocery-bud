@@ -1,6 +1,5 @@
 import { addItem, updateItemName } from "./app.js";
 
-// Create Form Element
 export function createForm(editId, itemToEdit) {
   const form = document.createElement("form");
 
@@ -29,7 +28,6 @@ export function createForm(editId, itemToEdit) {
       return;
     }
 
-    // added conditions
     if (editId) {
       updateItemName(value);
     } else {

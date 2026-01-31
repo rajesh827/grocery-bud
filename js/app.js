@@ -1,11 +1,21 @@
-import { groceryItems } from "./data.js";
 import { createItems } from "./items.js";
 import { createForm } from "./form.js";
 
-let items = groceryItems;
+function getLocalStorage() {
+  const list = localStorage.getItem("grocery-list");
+  if (list) {
+    return JSON.parse(list);
+  }
+  return [];
+}
+
+function setLocalStorage(itemsArray) {
+  localStorage.setItem("grocery-list", JSON.stringify(itemsArray));
+}
+
+let items = getLocalStorage();
 let editId = null;
 
-// Render App
 function render() {
   const app = document.getElementById("app");
   app.innerHTML = "";
@@ -22,12 +32,10 @@ function render() {
 
 render();
 
-// Generate unique ID
 function generateId() {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
 }
 
-// Add Item Function
 export function addItem(itemName) {
   const newItem = {
     name: itemName,
@@ -36,6 +44,7 @@ export function addItem(itemName) {
   };
   items = [...items, newItem];
   render();
+  setLocalStorage(items);
   setTimeout(() => alert("Item Added Successfully!"), 0);
 }
 
@@ -46,16 +55,17 @@ export function editCompleted(itemId) {
     }
     return item;
   });
+  setLocalStorage(items);
   render();
 }
 
 export function removeItem(itemId) {
   items = items.filter((item) => item.id !== itemId);
+  setLocalStorage(items);
   render();
   setTimeout(() => alert("Item Deleted Successfully!"), 0);
 }
 
-// Update Item Name Function
 export function updateItemName(newName) {
   items = items.map((item) => {
     if (item.id === editId) {
@@ -64,16 +74,14 @@ export function updateItemName(newName) {
     return item;
   });
   editId = null;
+  setLocalStorage(items);
   render();
   setTimeout(() => alert("Item Updated Successfully!"), 0);
 }
 
-// Set Edit ID Function
 export function setEditId(itemId) {
   editId = itemId;
   render();
-
-  // Focus input after render
   setTimeout(() => {
     const input = document.querySelector(".form-input");
     if (input) {
